@@ -6,7 +6,7 @@ import javax.swing.table.AbstractTableModel;
 public class LinesTableModel extends  AbstractTableModel{
     
     private ArrayList<InvoiceLine> lines;
-    private String[] col ={"No. ","Item Name ","Item Price ","Item Total Price "};
+    private String[] col ={"No. ","Item Name ","Item Price ","Count ","Item Total Price "};
     public LinesTableModel(ArrayList<InvoiceLine> lines)
     {
         this.lines=lines;

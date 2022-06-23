@@ -23,6 +23,7 @@ public class InvoiceFrame extends javax.swing.JFrame {
      * Creates new form InvoiceFrame
      */
     public InvoiceFrame() {
+        Handle = new ActionHandler(this);
         initComponents();
     }
 
@@ -38,7 +39,7 @@ public class InvoiceFrame extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         invoiceTable = new javax.swing.JTable();
         invoiceTable.getSelectionModel().addListSelectionListener(Handle);
-        invoiceTable.setModel(getInovicesTableModel());
+        //invoiceTable.setModel(getInovicesTableModel());
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -87,13 +88,13 @@ public class InvoiceFrame extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "No.", "Item Name", "Item Price", "Item Total Price"
+                "No.", "Item Name", "Item Price", "Count", "Item Total Price"
             }
         ));
         jScrollPane2.setViewportView(jTable2);
@@ -188,16 +189,16 @@ public class InvoiceFrame extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 32, Short.MAX_VALUE)
+                                .addGap(0, 29, Short.MAX_VALUE)
                                 .addComponent(jLabel6)
-                                .addGap(63, 63, 63))
+                                .addGap(57, 57, 57))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel1)
                                     .addComponent(jLabel5))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(16, 16, 16)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel7))
@@ -297,12 +298,13 @@ public class InvoiceFrame extends javax.swing.JFrame {
     private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 private ArrayList<InvoiceHeader> invoices;
-private ActionHandler Handle = new ActionHandler(this);
+private ActionHandler Handle ;
 
 private InoviceTableModel inoviceTableModel;
 public ArrayList<InvoiceHeader> getInvoices() {
-        if (invoices == null) 
+        if (invoices == null)
         {
+        
             invoices = new ArrayList<>();
         }
         return invoices;
@@ -311,10 +313,10 @@ public void setInvoices(ArrayList<InvoiceHeader> invoices) {
         this.invoices = invoices;
     }
 public InoviceTableModel getInovicesTableModel() {
-        if (inoviceTableModel == null) {
+               if (inoviceTableModel == null) {
            inoviceTableModel = new InoviceTableModel(getInvoices());
 //JOptionPane.showMessageDialog(this ,"Please load the CSV Files for Headers and lines for the invoices has data in the first and select one of them to show ","warining ",JOptionPane.ERROR_MESSAGE);         }
-    }
+               }
             return inoviceTableModel;
     
 }

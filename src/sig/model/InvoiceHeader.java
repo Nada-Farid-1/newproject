@@ -27,7 +27,7 @@ public double getInvoiceTotal() {
     }
     
     public ArrayList<InvoiceLine> getLines() {
-        if (Line == null) {
+       if (Line == null) {
             Line = new ArrayList<>();
         }
         return Line;

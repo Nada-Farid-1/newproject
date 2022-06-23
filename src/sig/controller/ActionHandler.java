@@ -195,7 +195,7 @@ public ActionHandler(InvoiceFrame frame) {
                 }
             }
         } catch (Exception ex) {
-
+            ex.printStackTrace();
         }
     }
 
@@ -287,7 +287,7 @@ int x=frame.getInvoiceTable().getModel().getRowCount();
         String customer = invoiceDialog.getCustomerName().getText();
         int num = frame.getNextInvoiceNum();
         try {
-            String[] dateParts = date.split("-");  // "22-05-2013" -> {"22", "05", "2013"}  xy-qw-20ij
+            String[] dateParts = date.split("-");  
             if (dateParts.length < 3) {
                 JOptionPane.showMessageDialog(frame, "Wrong date format", "Error", JOptionPane.ERROR_MESSAGE);
             } else {
@@ -304,7 +304,7 @@ int x=frame.getInvoiceTable().getModel().getRowCount();
                 int CurrentYear =cal.get(Calendar.YEAR);
 
                // System.out.println("*******************************"+day5+"*******"+year5+"*********"+month5);
-                if (((day > 31)|| (day>CurrentDay)) || ((month > 12)|| (month >CurrentMonth) ) || year>CurrentYear ){
+                if ((day > 31) || ((month > 12) || year>CurrentYear )){
                     JOptionPane.showMessageDialog(frame, "Wrong date format", "Error", JOptionPane.ERROR_MESSAGE);
                 } else {
                     InvoiceHeader invoice = new InvoiceHeader(num, customer, date);
